@@ -3,7 +3,7 @@ import tensorflow as tf
 import os
 import tensorflow.keras as keras
 from tensorflow.keras.layers import Dense
-from tensorflow.keras.optimiers import Adam
+from tensorflow.keras.optimizers import Adam
 
 class ReplayBuffer:
     def __init__(self, max_size, input_shape, n_actions):
@@ -47,8 +47,8 @@ class CriticNetwork(keras.Model):
         self.checkpoint_dir = chkpt_dir
         self.checkpoint_file = os.path.join(self.checkpoint_dir, name+'_td3')
 
-        self.fc1 = Dense(self.fc1, activation='relu')
-        self.fc2 = Dense(self.fc2, activation='relu')
+        self.fc1 = Dense(self.fc1_dims, activation='relu')
+        self.fc2 = Dense(self.fc2_dims, activation='relu')
         self.q = Dense(1, activation=None)
 
     def call(self, state, action):
@@ -66,8 +66,8 @@ class ActorNetwork(keras.Model):
         self.fc2_dims = fc2_dims
         self.n_actions = n_actions
         self.model_name = name
-        self.checkpint_dir = chkpt_dir
-        self.checkpint_file = os.path.join(self.checkpoint_dir, name+'_td3')
+        self.checkpoint_dir = chkpt_dir
+        self.checkpoint_file = os.path.join(self.checkpoint_dir, name+'_td3')
 
         self.fc1 = Dense(self.fc1_dims, activation='relu')
         self.fc2 = Dense(self.fc2_dims, activation='relu')
@@ -82,7 +82,7 @@ class ActorNetwork(keras.Model):
         return mu
     
 class Agent:
-    def __init__(self,  alpha, beta, innput_dims, tau, env, 
+    def __init__(self,  alpha, beta, input_dims, tau, env, 
                 gamma=0.99, update_actor_interval=2, warmup=1000,
                 n_actions=2, max_size=1000000, layer1_size=400,
                 layer2_size=300, batch_size=300, noise=0.1):
@@ -90,7 +90,7 @@ class Agent:
         self.tau = tau
         self.max_action = env.action_space.high[0]
         self.min_action = env.action_space.low[0]
-        self.memory = ReplayBuffer(max_size, innput_dims, n_actions)
+        self.memory = ReplayBuffer(max_size, input_dims, n_actions)
         self.batch_size = batch_size
         self.learn_step_cntr = 0 #for delayed part of tc3: delay updates of actor network every other time of the update of the critic network to give critic network time to converge
         self.time_step = 0 #for warmup
