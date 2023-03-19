@@ -4,7 +4,7 @@
 
 the actor-critic method describes a method to approximate the value function to then derive an optimal policy
 the ac method consists of two DNNs:
-    1. used to approximate the agent's policy directly (actor)
+    1. used to approximate the agent's policy directly (actor) (policy is a prob distr)
     2. used to approximate the value function (critic)
 both DNNs work together: the actor selects actions and the critic evaluates the states and the result is compared to the rewards from the environment
 belongs to Temporal Difference learning (since learning happpens in episodes)
@@ -26,6 +26,8 @@ algo overview:
     - network outputs action values, no probabilities here
     - noise for explore-exploit dilemma
 
+see paper 'Continuous Control with Deep Reinforcement Learning'
+
 ### 3. Twin Delayed Deep Deterministic Policy Gradients (TD3) 
 extension of 2. DDPG
 
@@ -41,3 +43,18 @@ extension of 2. DDPG
 - use target networks for actor and (both) critics (6 in total)
 - use soft updates to the target network
 
+see paper 'Addressing Function Approximation Error in Actor-Critic Methods
+
+### 4. Proximal Policy Optimization (PPO)
+
+- tries to resolve the issue that in AC methods performance can decline quickly and hardly recovers (due to the fact that ac methods is very sensitive to pertubations e.g. small change in networks weights can change the output significantly)
+
+- limits update to policy network by baseing the update on the ration of new policy to old
+
+- two distinct networks instead of shared inputs
+- critic evaluates states (not s,a pairs!)
+- actor decides what to do based on current state
+    - network outputs probs (softmax) for a distribution
+    - exploration due to nature of distribution
+
+see paper 'Proximal Policy Optimization Algorithms'
