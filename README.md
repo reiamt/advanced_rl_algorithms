@@ -76,5 +76,6 @@ see paper 'Soft Actor-Critic: Off-Policy Maximum Entropy Deep Reinforcement Lear
 
 ### 6. Asynchronous Advantage Actor Critic (A3C)
 
+- instead of Replaybuffer, allow multiple agents to play independently on separate environments
 
 see paper 'Asynchronous Methods for Deep Reinforcement Learning
