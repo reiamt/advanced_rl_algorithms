@@ -1,5 +1,9 @@
 ## Reinforcement Learning Course: Intro to Advanced Actor Critic Methods
 
+### 0. Overview of RL algorithms
+
+![alt text](https://www.cloudcraftz.com/wp-content/uploads/2021/02/mind_map_rl_algos.png)
+
 ### 1. Actor Critic (AC)
 
 the actor-critic method describes a method to approximate the value function to then derive an optimal policy
