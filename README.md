@@ -58,3 +58,23 @@ see paper 'Addressing Function Approximation Error in Actor-Critic Methods
     - exploration due to nature of distribution
 
 see paper 'Proximal Policy Optimization Algorithms'
+
+### 5. Soft Actor Critic (SAC)
+
+- how to use a maximum entropy framework in actor critic?
+
+- maximizes both long term rewards and entropy
+- similar to Q learning (epsilon greedy)
+- entropy modeled by reward scalling (inv. relationship)
+- leverages actor, value network and critic networks
+- actually uses two critics like double Q learning / TD3
+- also makes use of a target value function (soft update)
+
+- actor network models mean and sigma of distribution
+
+see paper 'Soft Actor-Critic: Off-Policy Maximum Entropy Deep Reinforcement Learning with a Stochastic Actor'
+
+### 6. Asynchronous Advantage Actor Critic (A3C)
+
+
+see paper 'Asynchronous Methods for Deep Reinforcement Learning
