@@ -32,7 +32,7 @@ algo overview:
     - network outputs action values, no probabilities here
     - noise for explore-exploit dilemma
 
-see paper 'Continuous Control with Deep Reinforcement Learning'
+see paper ['Continuous Control with Deep Reinforcement Learning'](https://arxiv.org/pdf/1509.02971.pdf)
 
 ### 3. Twin Delayed Deep Deterministic Policy Gradients (TD3) 
 extension of 2. DDPG
@@ -49,7 +49,7 @@ extension of 2. DDPG
 - use target networks for actor and (both) critics (6 in total)
 - use soft updates to the target network
 
-see paper 'Addressing Function Approximation Error in Actor-Critic Methods
+see paper ['Addressing Function Approximation Error in Actor-Critic Methods'](https://arxiv.org/pdf/1802.09477.pdf)
 
 ### 4. Proximal Policy Optimization (PPO)
 
@@ -63,7 +63,7 @@ see paper 'Addressing Function Approximation Error in Actor-Critic Methods
     - network outputs probs (softmax) for a distribution
     - exploration due to nature of distribution
 
-see paper 'Proximal Policy Optimization Algorithms'
+see paper ['Proximal Policy Optimization Algorithms'](https://arxiv.org/pdf/1707.06347.pdf)
 
 ### 5. Soft Actor Critic (SAC)
 
@@ -78,10 +78,10 @@ see paper 'Proximal Policy Optimization Algorithms'
 
 - actor network models mean and sigma of distribution
 
-see paper 'Soft Actor-Critic: Off-Policy Maximum Entropy Deep Reinforcement Learning with a Stochastic Actor'
+see paper ['Soft Actor-Critic: Off-Policy Maximum Entropy Deep Reinforcement Learning with a Stochastic Actor'](https://arxiv.org/pdf/1801.01290.pdf)
 
 ### 6. Asynchronous Advantage Actor Critic (A3C)
 
 - instead of Replaybuffer, allow multiple agents to play independently on separate environments
 
-see paper 'Asynchronous Methods for Deep Reinforcement Learning
+see paper ['Asynchronous Methods for Deep Reinforcement Learning'](https://arxiv.org/pdf/1602.01783.pdf)
