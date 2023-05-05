@@ -1,17 +1,20 @@
-import pybullet_envs
+
+#import pybullet
 import gym
+import pybullet_envs
 import numpy as np
 from sac_tf2 import Agent
 from utils import plot_learning_curve
 
 if __name__== '__main__':
-    env = gym.make('InvertedPendulumBulletEnv-v0')
+    env = gym.make('InvertedPendulumPyBulletEnv-v0')
     agent = Agent(input_dims=env.observation_space.shape, env=env,
                   n_actions=env.action_space.shape[0])
     n_games = 250
 
     filename = 'inverted_pendulum.png'
     figure_file = 'plots/'+filename
+
 
     best_score = env.reward_range[0]
     score_history = []
@@ -20,6 +23,11 @@ if __name__== '__main__':
     if load_checkpoint:
         agent.load_models()
         env.render(mode='human')
+
+    print(best_score)
+    print(env.action_space)
+    print(env.observation_space)
+    print(env.action_space.high)
 
     for i in range(n_games):
         observation = env.reset()
